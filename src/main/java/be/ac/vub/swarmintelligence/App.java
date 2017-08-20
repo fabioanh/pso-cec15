@@ -25,6 +25,7 @@ public class App {
 	private static final String MAX_EVAL = "maxeval";
 	private static final String HELP = "help";
 	private static final String NUM_PARTICLES = "numparticles";
+	private static final String PROBLEM = "problem";
 	private static final String SEED = "seed";
 	private final static Logger LOGGER = Logger.getLogger(App.class);
 
@@ -51,6 +52,11 @@ public class App {
 			CommandLine cliArgs = parser.parse(getOptions(), args);
 			if (cliArgs.hasOption(HELP)) {
 				help();
+			}
+			if (cliArgs.hasOption(PROBLEM)) {
+				response.put(PROBLEM, Integer.valueOf(cliArgs.getOptionValue(PROBLEM)));
+			} else {
+				response.put(PROBLEM, 1);
 			}
 			if (cliArgs.hasOption(NUM_PARTICLES)) {
 				response.put(NUM_PARTICLES, Integer.valueOf(cliArgs.getOptionValue(NUM_PARTICLES)));
@@ -109,6 +115,16 @@ public class App {
 	private static Options getOptions() {
 		Options options = new Options();
 
+		//@formatter:off
+		Option problem = Option.builder("p").
+				argName(PROBLEM).
+				hasArg().
+				longOpt(PROBLEM).
+				desc("Problem number to test the solution on").
+				build();
+		options.addOption(problem);
+		//@formatter:on
+		
 		//@formatter:off
 		Option numParticles = Option.builder("n").
 				argName(NUM_PARTICLES).
