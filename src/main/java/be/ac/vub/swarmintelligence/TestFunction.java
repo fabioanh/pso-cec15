@@ -9,7 +9,7 @@ package be.ac.vub.swarmintelligence;
 import java.io.File;
 import java.util.Scanner;
 
-public class Function {
+public class TestFunction {
 	final double INF = 1.0e99;
 	final double EPS = 1.0e-14;
 	final double E = 2.7182818284590452353602874713526625;
@@ -23,7 +23,7 @@ public class Function {
 	int ini_flag, n_flag, func_flag;
 	int[] SS;
 
-	private static ClassLoader classLoader = Function.class.getClassLoader();
+	private static ClassLoader classLoader = TestFunction.class.getClassLoader();
 
 	// double sphere_func (double[] , double , int , double[] ,double[] ,int
 	// ,int) /* Sphere */
@@ -226,7 +226,8 @@ public class Function {
 					for (j = 0; j < nx; j++) {
 						OShift[i * nx + j] = input.nextDouble();
 					}
-					String sss = input.nextLine();
+//					String sss = input.nextLine();
+					input.nextLine();
 
 					// System.out.println(OShift[i*nx+j]);
 				}

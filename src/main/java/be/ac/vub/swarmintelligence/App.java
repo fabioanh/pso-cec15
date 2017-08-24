@@ -21,6 +21,8 @@ import org.apache.log4j.Logger;
  */
 public class App {
 	private static final String WEIGHT = "weight";
+	private static final String PERSONAL_ACCELERATION = "personalacc";
+	private static final String SOCIAL_ACCELERATION = "socialacc";
 	private static final String DIMENSION = "dimension";
 	private static final String MAX_EVAL = "maxeval";
 	private static final String HELP = "help";
@@ -78,6 +80,18 @@ public class App {
 			} else {
 				response.put(SEED, 1234);
 			}
+			if (cliArgs.hasOption(PERSONAL_ACCELERATION)) {
+				response.put(PERSONAL_ACCELERATION,
+						Double.valueOf(cliArgs.getOptionValue(PERSONAL_ACCELERATION)));
+			} else {
+				response.put(PERSONAL_ACCELERATION, 1.0);
+			}
+			if (cliArgs.hasOption(SOCIAL_ACCELERATION)) {
+				response.put(SOCIAL_ACCELERATION,
+						Double.valueOf(cliArgs.getOptionValue(SOCIAL_ACCELERATION)));
+			} else {
+				response.put(SOCIAL_ACCELERATION, 1.0);
+			}
 			if (cliArgs.hasOption(MAX_EVAL)) {
 				response.put(MAX_EVAL, Integer.valueOf(cliArgs.getOptionValue(MAX_EVAL)));
 			} else {
@@ -124,7 +138,7 @@ public class App {
 				build();
 		options.addOption(problem);
 		//@formatter:on
-		
+
 		//@formatter:off
 		Option numParticles = Option.builder("n").
 				argName(NUM_PARTICLES).
@@ -163,6 +177,25 @@ public class App {
 				desc("Seed value used in the random numbers generation").
 				build();
 		options.addOption(seed);
+		//@formatter:on
+
+		//@formatter:off
+		Option perAcc = Option.builder("a1").
+				argName(PERSONAL_ACCELERATION).
+				hasArg().
+				longOpt(PERSONAL_ACCELERATION).
+				desc("Personal acceleration parameter").
+				build();
+		options.addOption(perAcc);
+		//@formatter:on
+		//@formatter:off
+		Option socialAcc = Option.builder("a2").
+				argName(SOCIAL_ACCELERATION).
+				hasArg().
+				longOpt(SOCIAL_ACCELERATION).
+				desc("Social acceleration parameter").
+				build();
+		options.addOption(socialAcc);
 		//@formatter:on
 
 		//@formatter:off

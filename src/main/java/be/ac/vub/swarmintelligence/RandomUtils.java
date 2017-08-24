@@ -36,8 +36,21 @@ public class RandomUtils {
 	 * @return
 	 */
 	public Integer getRandomInt(Integer upperBound) {
-		Integer aux = random.nextInt(upperBound);
-		return aux;
+		return random.nextInt(upperBound);
+	}
+
+	/**
+	 * Returns a bounded random integer
+	 * 
+	 * @param lowerBound
+	 *            lower bound for the generated value
+	 * @param upperBound
+	 *            upper bound for the generated value
+	 * @return
+	 */
+	public Integer getRandomInt(Integer lowerBound, Integer upperBound) {
+		Integer distance = Math.abs(upperBound - lowerBound);
+		return random.nextInt(distance) + lowerBound;
 	}
 
 	/**
