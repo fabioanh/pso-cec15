@@ -14,6 +14,8 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.log4j.Logger;
 
+import be.ac.vub.swarmintelligence.utils.RandomUtils;
+
 /**
  * 
  * @author fabio

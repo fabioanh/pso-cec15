@@ -7,6 +7,7 @@ public class Swarm implements Iterable<Particle> {
 	private Particle[] particles;
 	private double[] bestPosition;
 	private int dimension;
+	private double[] inertia;
 
 	@Override
 	public Iterator<Particle> iterator() {

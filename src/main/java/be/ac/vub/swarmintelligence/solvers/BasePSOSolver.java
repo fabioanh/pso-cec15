@@ -1,4 +1,4 @@
-package be.ac.vub.swarmintelligence;
+package be.ac.vub.swarmintelligence.solvers;
 
 public class BasePSOSolver {
 

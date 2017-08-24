@@ -1,4 +1,4 @@
-package be.ac.vub.swarmintelligence;
+package be.ac.vub.swarmintelligence.utils;
 
 import java.util.List;
 import java.util.Map;
